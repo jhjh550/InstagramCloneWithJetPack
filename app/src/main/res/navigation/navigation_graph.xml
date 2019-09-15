@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation_graph.xml"
+        app:startDestination="@id/navigation_home">
+    <fragment
+            android:id="@+id/navigation_home"
+            android:name="com.fieldbear.instaclonewithjetpack.post.list.PostListFragment"
+            android:label="FieldBear"
+            tools:layout="@layout/fragment_main">
+        <action
+                android:id="@+id/action_add_comment"
+                app:destination="@id/postCommentsFragment" />
+    </fragment>
+    <fragment
+            tools:layout="@layout/fragment_userdata"
+            android:id="@+id/navigation_profile"
+            android:name="com.fieldbear.instaclonewithjetpack.userdata.UserDataFragment"
+            android:label="Profile" />
+    <fragment
+            android:id="@+id/postAddFragment"
+            android:name="com.fieldbear.instaclonewithjetpack.post.add.PostAddFragment"
+            android:label="post_add_fragment"
+            tools:layout="@layout/fragment_post_add" />
+    <fragment
+            android:id="@+id/postCommentsFragment"
+            android:name="com.fieldbear.instaclonewithjetpack.comment.detail.PostCommentsFragment"
+            android:label="Comments"
+            tools:layout="@layout/fragment_post_comments">
+        <argument
+                android:name="postId"
+                app:argType="string" />
+        <argument
+                android:name="post"
+                app:argType="com.fieldbear.instaclonewithjetpack.post.Post" />
+    </fragment>
+
+</navigation>
